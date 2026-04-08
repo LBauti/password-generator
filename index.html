@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Strong Password Generator - Create secure passwords instantly with a modern, free tool.">
+    <title>Password Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="tailwind-ready bg-zinc-950 text-white min-h-screen flex flex-col">
+    <nav class="border-b border-white/10 bg-zinc-950/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-screen-2xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <img src="https://i.imgur.com/kXxjVAX.png" 
+                     alt="SecurePass" 
+                     class="w-9 h-9">
+                <h1 class="heading-font text-2xl tracking-[-1px]">SecurePass</h1>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a href="#tool" class="hover:text-cyan-400">Generator</a>
+                <a href="#benefits" class="hover:text-cyan-400">Benefits</a>
+                <a href="#faq" class="hover:text-cyan-400">FAQ</a>
+            </div>
+            
+            <a href="https://x.com/leibauti" 
+               target="_blank"
+               class="text-xs font-medium px-4 py-2 rounded-3xl bg-white/10 hover:bg-white/20 flex items-center gap-x-2">
+                <span>Built by Bauti</span>
+                <span class="text-cyan-400">𝕏</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero-bg py-16 md:py-24">
+        <div class="max-w-screen-2xl mx-auto px-6 text-center">
+            <div class="max-w-2xl mx-auto">
+                <div class="inline-flex items-center gap-x-2 bg-white/10 text-white text-sm font-medium px-5 py-2 rounded-3xl mb-6 border border-white/20">
+                    <div class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                    100% FREE • NO ACCOUNT REQUIRED
+                </div>
+                
+                <h1 class="heading-font text-6xl md:text-7xl leading-none tracking-[-2px] mb-4">
+                    Strong Password<br>Generator
+                </h1>
+                
+                <p class="text-2xl md:text-3xl text-zinc-400 font-light mb-10">
+                    Create secure passwords instantly
+                </p>
+                
+                <p class="text-zinc-500 max-w-md mx-auto mb-12">
+                    Built with modern cryptography principles. 
+                    Generated locally in your browser. 
+                    Never stored. Never shared.
+                </p>
+                
+                <div class="flex items-center justify-center gap-x-8 text-sm text-zinc-400">
+                    <div class="flex items-center gap-x-1.5">
+                        <span class="text-emerald-400">●</span>
+                        AES-256 inspired
+                    </div>
+                    <div class="flex items-center gap-x-1.5">
+                        <span class="text-emerald-400">●</span>
+                        Zero-knowledge
+                    </div>
+                    <div class="flex items-center gap-x-1.5">
+                        <span class="text-emerald-400">●</span>
+                        Open source ready
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="tool" class="max-w-2xl mx-auto -mt-10 md:-mt-14 px-6 relative z-10 mb-20">
+        <div class="tool-card bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 md:p-10">
+            
+            <div class="mb-8">
+                <div class="flex justify-between items-baseline mb-3">
+                    <label class="text-lg font-medium">Password length</label>
+                    <div id="length-value" class="text-4xl font-semibold tabular-nums heading-font text-cyan-400">16</div>
+                </div>
+                
+                <div class="relative">
+                    <input 
+                        type="range" 
+                        id="length-slider"
+                        min="8" 
+                        max="32" 
+                        value="16"
+                        class="w-full accent-cyan-400 cursor-pointer">
+                    <div class="flex justify-between text-xs text-zinc-500 mt-1">
+                        <div>8</div>
+                        <div>32</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4 mb-10">
+                <label class="flex items-center gap-x-3 bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 cursor-pointer group">
+                    <input type="checkbox" id="uppercase" checked class="w-5 h-5 accent-cyan-400">
+                    <div class="flex-1">
+                        <div class="text-sm font-medium">Include uppercase</div>
+                        <div class="text-xs text-zinc-400">A B C D E...</div>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 icon-hover text-zinc-400 group-hover:text-cyan-400" viewBox="0 0 24 24" fill="none">
+                        <text x="12" y="17" text-anchor="middle" dominant-baseline="middle" font-family="'Space Grotesk', sans-serif" font-size="19" font-weight="700" fill="currentColor">A</text>
+                    </svg>
+                </label>
+                
+                <label class="flex items-center gap-x-3 bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 cursor-pointer group">
+                    <input type="checkbox" id="lowercase" checked class="w-5 h-5 accent-cyan-400">
+                    <div class="flex-1">
+                        <div class="text-sm font-medium">Include lowercase</div>
+                        <div class="text-xs text-zinc-400">a b c d e...</div>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 icon-hover text-zinc-400 group-hover:text-cyan-400" viewBox="0 0 24 24" fill="none">
+                        <text x="12" y="17" text-anchor="middle" dominant-baseline="middle" font-family="'Space Grotesk', sans-serif" font-size="19" font-weight="700" fill="currentColor">a</text>
+                    </svg>
+                </label>
+                
+                <label class="flex items-center gap-x-3 bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 cursor-pointer group">
+                    <input type="checkbox" id="numbers" checked class="w-5 h-5 accent-cyan-400">
+                    <div class="flex-1">
+                        <div class="text-sm font-medium">Include numbers</div>
+                        <div class="text-xs text-zinc-400">0 1 2 3 4...</div>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 icon-hover text-zinc-400 group-hover:text-cyan-400" viewBox="0 0 24 24" fill="none">
+                        <text x="12" y="17" text-anchor="middle" dominant-baseline="middle" font-family="'Space Grotesk', sans-serif" font-size="19" font-weight="700" fill="currentColor">1</text>
+                    </svg>
+                </label>
+                
+                <label class="flex items-center gap-x-3 bg-white/5 hover:bg-white/10 rounded-2xl px-5 py-4 cursor-pointer group">
+                    <input type="checkbox" id="symbols" checked class="w-5 h-5 accent-cyan-400">
+                    <div class="flex-1">
+                        <div class="text-sm font-medium">Include symbols</div>
+                        <div class="text-xs text-zinc-400">@ # $ % ^...</div>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 icon-hover text-zinc-400 group-hover:text-cyan-400" viewBox="0 0 24 24" fill="none">
+                        <text x="12" y="17" text-anchor="middle" dominant-baseline="middle" font-family="'Space Grotesk', sans-serif" font-size="19" font-weight="700" fill="currentColor">#</text>
+                    </svg>
+                </label>
+            </div>
+            
+            <button onclick="generatePassword()" 
+                    id="generate-btn"
+                    class="generate-btn w-full bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-zinc-950 font-semibold text-xl py-6 rounded-3xl flex items-center justify-center gap-x-3 shadow-xl">
+                <span>GENERATE SECURE PASSWORD</span>
+                <span class="text-3xl">✦</span>
+            </button>
+            
+            <div class="mt-10">
+                <div class="text-xs font-medium tracking-[1px] text-zinc-400 mb-3 flex items-center justify-between">
+                    <span>YOUR PASSWORD</span>
+                    <span id="strength-indicator" class="px-3 py-1 rounded-3xl bg-emerald-400/10 text-emerald-400 text-[10px] font-mono">STRONG</span>
+                </div>
+                
+                <div id="password-container" 
+                     onclick="copyPassword()"
+                     class="password-display bg-zinc-900 border border-white/10 hover:border-cyan-400 rounded-3xl px-8 py-7 flex items-center min-h-[72px] cursor-pointer relative group">
+                    
+                    <div id="password-display" class="flex-1 text-center break-all select-all"></div>
+                    
+                    <button onclick="event.stopImmediatePropagation(); copyPassword();" 
+                            class="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 bg-white/10 hover:bg-white/20 text-white text-sm font-medium px-5 py-3 rounded-2xl flex items-center gap-x-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" fill="none"/>
+                            <path d="M5 15H4a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2v1" stroke="currentColor" fill="none"/>
+                        </svg>
+                        <span id="copy-text">Copy</span>
+                    </button>
+                    
+                    <div id="empty-state" class="absolute inset-0 flex items-center justify-center text-zinc-500 text-sm font-light">
+                        Click "Generate" to create a password
+                    </div>
+                </div>
+                
+                <p id="password-hint" class="text-[10px] text-zinc-500 text-center mt-4 font-mono hidden">
+                    Generated in your browser • 100% secure
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <section id="benefits" class="py-20 bg-zinc-900">
+        <div class="max-w-screen-2xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="px-4 py-2 text-xs font-semibold bg-cyan-400 text-zinc-950 rounded-3xl">WHY USERS LOVE IT</span>
+                <h2 class="heading-font text-5xl mt-4 tracking-[-1px]">Secure. Fast. Free.</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col items-center text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 mb-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-2">Secure</h3>
+                    <p class="text-zinc-400">Passwords are generated locally using cryptographically strong randomness. Nothing is ever sent to a server.</p>
+                    <div class="mt-auto pt-8 text-cyan-400 text-sm font-medium">Zero data collection →</div>
+                </div>
+                
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col items-center text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 mb-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-2">Fast</h3>
+                    <p class="text-zinc-400">Instant generation in milliseconds. No loading spinners, no delays — just strong passwords when you need them.</p>
+                    <div class="mt-auto pt-8 text-cyan-400 text-sm font-medium">Instant results →</div>
+                </div>
+                
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-8 flex flex-col items-center text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14 mb-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
+                    </svg>
+                    <h3 class="text-2xl font-semibold mb-2">Free</h3>
+                    <p class="text-zinc-400">Completely free forever. No sign-up. No premium tiers. No hidden costs. Built for everyone who values privacy.</p>
+                    <div class="mt-auto pt-8 text-cyan-400 text-sm font-medium">No strings attached →</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-20">
+        <div class="max-w-screen-2xl mx-auto px-6">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-center text-4xl font-semibold mb-12">Frequently asked questions</h2>
+                
+                <details class="group bg-white/5 border border-white/10 rounded-3xl mb-4 px-8 py-6">
+                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium">
+                        <span>What makes a password truly strong?</span>
+                        <span class="text-3xl group-open:rotate-180">↓</span>
+                    </summary>
+                    <div class="mt-6 text-zinc-400 leading-relaxed">
+                        A strong password combines uppercase &amp; lowercase letters, numbers, and symbols, while being at least 12 characters long. Our generator ensures maximum entropy by randomly selecting from all chosen character sets.
+                    </div>
+                </details>
+                
+                <details class="group bg-white/5 border border-white/10 rounded-3xl mb-4 px-8 py-6">
+                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium">
+                        <span>Are the passwords stored anywhere?</span>
+                        <span class="text-3xl group-open:rotate-180">↓</span>
+                    </summary>
+                    <div class="mt-6 text-zinc-400 leading-relaxed">
+                        No. Everything happens inside your browser using JavaScript. No passwords are saved, logged, or transmitted. Your data stays 100% private.
+                    </div>
+                </details>
+                
+                <details class="group bg-white/5 border border-white/10 rounded-3xl px-8 py-6">
+                    <summary class="flex items-center justify-between cursor-pointer text-lg font-medium">
+                        <span>How often should I update my passwords?</span>
+                        <span class="text-3xl group-open:rotate-180">↓</span>
+                    </summary>
+                    <div class="mt-6 text-zinc-400 leading-relaxed">
+                        Security experts recommend changing passwords every 90 days, or immediately after any suspected breach. Use unique passwords for every account — this generator makes that easy.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="mt-auto border-t border-white/10 py-12 bg-zinc-950">
+        <div class="max-w-screen-2xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-y-6 text-sm text-zinc-400">
+            <div>
+                &copy; 2026 SecurePass • A modern password tool by Bauti
+            </div>
+            
+            <div class="flex items-center gap-x-8">
+                <a href="#" onclick="showModal('Privacy Policy', 'All passwords are generated client-side. We do not collect, store, or share any data.')" 
+                   class="hover:text-cyan-400">Privacy Policy</a>
+                <a href="#" onclick="showModal('Contact', 'Have feedback? Reach out on 𝕏 @leibauti')" 
+                   class="hover:text-cyan-400">Contact</a>
+                <a href="https://github.com" target="_blank" class="hover:text-cyan-400">GitHub</a>
+            </div>
+            
+            <div class="flex items-center gap-x-1 text-xs font-mono">
+                MADE WITH 
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg> 
+                IN ARGENTINA
+            </div>
+        </div>
+    </footer>
+
+    <div onclick="if(event.target.id === 'modal') hideModal()" 
+         id="modal"
+         class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[9999] flex items-center justify-center">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="bg-zinc-900 rounded-3xl max-w-md w-full mx-4 p-8">
+            <h3 id="modal-title" class="text-2xl font-semibold mb-4"></h3>
+            <p id="modal-content" class="text-zinc-400"></p>
+            <button onclick="hideModal()" 
+                    class="mt-10 w-full py-4 bg-white/10 hover:bg-white/20 rounded-2xl text-sm font-medium">
+                CLOSE
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
